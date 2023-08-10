@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>SENSOR_DATA Readings</title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+        
+        header::before {
+            background: url('https://cdn.pixabay.com/photo/2017/02/01/13/52/analysis-2030261_1280.jpg');
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        section {
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav {
+            text-align: center;
+        }
+        
+        div {
+            border: 4px, rgb(207, 39, 39), solid;
+            border-radius: 3px;
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>SENSOR_DATA</h1>
+        </nav>
+    </header>
+
+
+    <section>
+        <div>
+            <table border="1" class="table">
+                <tr>
+                    <th>Temperature</th>
+                    <th>Time</th>
+                </tr>
+                {% for temperature_reading in temperature_readings %}
+                <tr>
+                    <td>{{ temperature_reading.temperature }}</td>
+                    <td>{{ temperature_reading.time }}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        <div>
+            <table border="1" class="table">
+                <tr>
+                    <th>Pulse_Data</th>
+                    <th>Time</th>
+                </tr>
+                {% for pulse_reading in pulse_readings %}
+                <tr>
+                    <td>{{ pulse_reading.pulse }}</td>
+                    <td>{{ pulse_reading.time }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        <div>
+            <table border="1" class="table">
+                <tr>
+                    <th>ECG_DATA</th>
+                    <th>Time</th>
+                </tr>
+                {% for ecg_reading in ecg_readings %}
+                <tr>
+                    <td>{{ ecg_reading.ecg_data }}</td>
+                    <td>{{ ecg_reading.time }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </section>
+
+
+</body>
+
+</html>
